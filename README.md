@@ -1,0 +1,10 @@
+# AGOL2GPKG
+
+This repository is for the development of a script that downloads data from ArcGIS Online into a Geopackage. This script is currently in early development. The logic and working code for this script can be found in the `AGOL2GPKG` Jupyter notebook in this repo.
+
+The goal for this script is to allow the user to quickly pull down data from ArcGIS Online into a local repository. In the Esri ecosystem, this would conventionally mean pulling the data into a Shapefile or File Geodatabase. While these data formats benefit from being familiar to many GIS users, they require GIS software for to carry out analysis. Geopackage is an extension of SQLite, a file-based relational database management system (RDBMS) format. Geopackages can hold a variety of data types (vector, raster, tiles) all in a single database. Spatial queries can be carried out in in ArcGIS Pro or QGIS where Geopackage is the default date format. Because it is built on SQLite, a user does not need GIS software to run queries on data in a Geopackage. By installing Spatialite one can even run spatial SQL queries from a SQL client.
+
+This tool seeks to meet a couple of needs:
+
+1. All of our data are going to ArcGIS Online. That makes it easy to find and load into a map. However, it means that if the platform goes down, our data goes with it. However, we can use this tool to run regular backups of our data on ArcGIS Online and store in a file that can quickly be loaded into GIS software outage or to restore our data elsewhere.
+2. We run queries on various characteristics of the parks and greenways systems on a semi-annual basis. This involves running the same queries for each report but with changing data. This script will allow us to pull down an archive of our data from the date of the report and then run the queries we have already generated to get the info from the data. 
